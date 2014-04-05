@@ -1,7 +1,7 @@
 var millisecondsBetween = 50;
 var commandList = [];
 
-function input(name, command, direction) {
+function input(name, direction) {
     commandList.push([name, command, direction]);
 
 }
