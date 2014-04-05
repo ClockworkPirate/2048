@@ -12,5 +12,5 @@ function output(commands) {
     }
 }
 
-setInterval("output", millisecondsBetween);
+setInterval(function(){output(commandList)}, millisecondsBetween);
 
