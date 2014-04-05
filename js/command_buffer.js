@@ -8,7 +8,7 @@ function input(name, command, direction) {
 
 function output(commands) {
     if(commandList.length > 0) {
-        reutrn commandList.shift();
+        return commandList.shift();
     }
 }
 
