@@ -1,7 +1,5 @@
 GameManager = function(size, Actuator) {
 
-  this.votes          = 0; 
-
   this.size           = size; // Size of the grid
   // this.inputManager   = new InputManager;
   // this.storageManager = new StorageManager;
@@ -19,20 +17,6 @@ GameManager = function(size, Actuator) {
   */
 
   this.setup(true);
-}
-
-GameManager.prototype.cal = function() {
-  this.votes++;
-  if (this.votes > 100) {
-    style_toggle.switchToCal;
-  }
-}
-
-GameManager.prototype.stanf = function() {
-  this.votes--;
-  if (this.votes < -100) {
-    style_toggle.switchToStanf;
-  }
 }
 
 
