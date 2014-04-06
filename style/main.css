@@ -219,11 +219,13 @@ h1.title {
   right: 10px; }
 
 .stanf.logo {
-  left: 310px; }
+  left: 380px; }
+
+.vote-button-iefix {
+  display: none; }
 
 .stanf.logo.iefix {
-  left: 280px;
-  background-color: white; }
+  left: 280px; }
 
 .logo img {
   width: auto;
