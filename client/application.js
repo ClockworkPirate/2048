@@ -68,7 +68,6 @@ window.requestAnimationFrame(function () {
 
 
 Template.scores.scores = function() {
-  console.log(Scores.find({}));
   return Scores.find({});
 }
 

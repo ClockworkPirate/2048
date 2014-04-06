@@ -23,7 +23,6 @@ Meteor.methods({
   
   register_move: function(name, direction) {
     commandList.push({name: name, direction: direction});
-    //Updates.insert({name: name, direction: direction, id: counter});
   },
   
   register_vote: function(name, direction) {
@@ -50,19 +49,16 @@ Meteor.setInterval(function () {
       grid: game.grid,
       newTile: newTile,
       votes: votes
-    }, 0);
+    });
     
 
     if(readyForMove) {
       readyForMove = false;
       if(game.isGameTerminated()) {
-        var lostOrWon = 0;
         if(game.over) {
-          lostOrWon = -1;
           Scores.update({}, {$inc: {losses: 1}});
         }
         else if(game.won) {
-          lostOrWon = 1;
           Scores.update({}, {$inc: {wins: 1}});
         }
         setTimeout(function(){
@@ -75,7 +71,7 @@ Meteor.setInterval(function () {
             grid: game.grid,
             newTile: null,
             votes: votes
-          }, lostOrWon);
+          });
           readyForMove = true;
         }, newgameInterval);
       }
@@ -93,16 +89,6 @@ Meteor.setInterval(function () {
 pushUpdate = function(obj, lostOrWon) {
   var u = Updates.findOne({}, {sort: {id: -1}});
   obj.id = u.id + 1;
-  if(u.id < 10) {
-    obj.wins = 0;
-    obj.losses = 0;
-  }
-  else if(lostOrWon > 0) {
-    obj.wins = u.wins + 1;
-  }
-  else if(lostOrWon < 0) {
-    obj.losses = u.losses + 1;
-  }
   Updates.insert(obj);
   Updates.remove({
     id: {$lt: u.id - 10}

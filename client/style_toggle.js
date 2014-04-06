@@ -28,13 +28,11 @@ Template.app.rendered = function() {
 
 
 Template.app.events({
-  "click .style-swap-button.cal": function() {
-    console.log("Cal");
+  "click .vote-button.cal": function() {
     Meteor.call('register_vote', $(".name-field").val(), -1);
   },
   
-  "click .style-swap-button.stanf": function() {
-    console.log("Stanford");
+  "click .vote-button.stanf": function() {
     Meteor.call('register_vote', $(".name-field").val(), 1);
   },
 

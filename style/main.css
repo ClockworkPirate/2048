@@ -222,7 +222,8 @@ h1.title {
 
 .logo img {
   width: auto;
-  height: 64px; }
+  height: 64px;
+  cursor: pointer; }
 
 p {
   margin-top: 0;
@@ -273,6 +274,8 @@ hr {
   color: #8c1515; }
 
 .commands {
+  max-height: 400px;
+  overflow: hidden;
   list-style-type: none; }
 
 .command.valid-false {
@@ -808,16 +811,34 @@ hr {
   margin-top: 50px; }
 
 @media screen and (max-width: 520px) {
+  .above-game, .vote-bar-part-1, .vote-bar-part-2, .vote-bar-part-3,
+  .vote-bar-divider, .vote-bar {
+    display: none;
+  }
+  
+  .vote-bar-container {
+    height: 0;
+  }
+  
+  .logo {
+    top: -55px;
+  }
+  
+  .stanf.logo {
+    left: 140px;
+  }
+  
+  
   html, body {
     font-size: 15px; }
 
   body {
-    margin: 20px 0;
-    padding: 0 20px; }
+    margin: 20px 0; }
 
   h1.title {
-    font-size: 28px;
-    margin-top: 15px; }
+    font-size: 26px;
+    margin-top: 15px;
+    padding-bottom: 15px; }
 
   .container {
     width: 280px;
@@ -1035,28 +1056,25 @@ hr {
   .chat-entry {
     width: 80%; } }
 
- @media (width < 600px) {
-	.style-swap-button {
-    	display: none;
-    }
+  .style-swap-button {
+    position: absolute;
+    width: 312px;
+    height: 512px;
+    z-index: 0;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+    transition: 1s opacity;
+    -webkit-transition: 1s opacity;
+    -moz-transition: 1s opacity;
   }
-
-  @media (width >= 600px) {
-    .style-swap-button {
-      position: absolute;
-      width: 312px;
-      height: 512px;
-      z-index: 50;
-      overflow: hidden;
-      cursor: pointer; }
-  }
-
+  
 .style-swap-button.cal {
   left: 0px;
   top: 275px;
   background-image: url(public/cal.png); }
 
-.wrapper.stanf .style-swap-button.cal {
+.wrapper.stanf .style-swap-button.cal img {
   opacity: 0.5; }
 
 .style-swap-button.stanf {
@@ -1064,5 +1082,32 @@ hr {
   top: 25px;
   background-image: url(public/stanford.png); }
 
-.wrapper.cal .style-swap-button.stanf {
+.wrapper.cal .style-swap-button.stanf img {
   opacity: 0.5; }
+
+
+
+@media (max-width: 1000px) {
+  .style-swap-button {
+   	opacity: 0;
+  }
+  
+}
+
+.commands {
+  position: absolute;
+  top: 330px;
+  left: 50%;
+  width: 120px;
+  margin-left: 265px;
+}
+
+@media (max-width: 1380px) {
+  .commands {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    margin-left: 0;
+  }
+}
