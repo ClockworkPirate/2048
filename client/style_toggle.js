@@ -25,7 +25,7 @@ Template.app.rendered = function() {
   }
 
   // Fix placement of Stanford logo button in IE
-  if (!$(".vote-button-iefix").length)
+  if ($(".vote-button-iefix").length)
   {
     $(".stanf.logo.vote-button").addClass("iefix");
   }
