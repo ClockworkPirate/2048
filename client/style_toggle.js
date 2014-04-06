@@ -25,9 +25,10 @@ Template.app.rendered = function() {
   }
 
   // Fix placement of Stanford logo button in IE
-  if ($(".vote-button-iefix").length)
+  if ($(".ie-test").length)
   {
     $(".stanf.logo.vote-button").addClass("iefix");
+    $("h1.title").addClass("iefix");
   }
 }
 
