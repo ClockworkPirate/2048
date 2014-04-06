@@ -35,6 +35,9 @@ h1.title {
   margin: 0;
   display: block; }
 
+h1.title.iefix {
+  font-size: 45px; }
+
 @-webkit-keyframes move-up {
   0% {
     top: 25px;
@@ -155,7 +158,7 @@ h1.title {
   background-color: #fdd515; }
 
 .stanf .vote-bar-part-2 {
-  background-color: white; }
+  background-color: #4d4f53; }
 
 .vote-bar-part-2 {
   margin: 0;
@@ -170,7 +173,6 @@ h1.title {
   display: table-cell;
   border-radius: 0 3px 3px 0;
   background-color: #4d4f53;
-  /*$game-container-background-stanf;*/
   z-index: -10; }
 
 .cal .vote-bar {
@@ -570,36 +572,36 @@ hr {
   .stanf .tile.tile-2 .tile-inner {
     background: #e2e2e2; }
   .cal .tile.tile-4 .tile-inner {
-    background: #b09f5c; }
+    background: #a59861; }
   .stanf .tile.tile-4 .tile-inner {
     background: #8c7374; }
   .cal .tile.tile-8 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #c27613; }
+    color: white;
+    background: #ab681b; }
   .stanf .tile.tile-8 .tile-inner {
     color: brighten(white, 30%);
     background: #a87c6b; }
   .cal .tile.tile-16 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #b5b667; }
+    color: white;
+    background: #93a173; }
   .stanf .tile.tile-16 .tile-inner {
     color: brighten(white, 30%);
     background: #5e8a91; }
   .cal .tile.tile-32 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #827c41; }
+    color: white;
+    background: #546051; }
   .stanf .tile.tile-32 .tile-inner {
     color: brighten(white, 30%);
     background: #6d948f; }
   .cal .tile.tile-64 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #946606; }
+    color: white;
+    background: #5b441a; }
   .stanf .tile.tile-64 .tile-inner {
     color: brighten(white, 30%);
     background: #927a8f; }
   .cal .tile.tile-128 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #d1af0d;
+    color: white;
+    background: #3a5243;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -614,8 +616,8 @@ hr {
       .stanf .tile.tile-128 .tile-inner {
         font-size: 25px; } }
   .cal .tile.tile-256 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #dcb90f;
+    color: white;
+    background: #2b4c4e;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -630,8 +632,8 @@ hr {
       .stanf .tile.tile-256 .tile-inner {
         font-size: 25px; } }
   .cal .tile.tile-512 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #e7c211;
+    color: white;
+    background: #1c4659;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -646,8 +648,8 @@ hr {
       .stanf .tile.tile-512 .tile-inner {
         font-size: 25px; } }
   .cal .tile.tile-1024 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #f2cb13;
+    color: white;
+    background: #0e4064;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
@@ -662,8 +664,8 @@ hr {
       .stanf .tile.tile-1024 .tile-inner {
         font-size: 15px; } }
   .cal .tile.tile-2048 .tile-inner {
-    color: brighten(#fdd515, 30%);
-    background: #fdd515;
+    color: white;
+    background: #003a70;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
@@ -678,7 +680,8 @@ hr {
       .stanf .tile.tile-2048 .tile-inner {
         font-size: 15px; } }
   .cal .tile.tile-super .tile-inner {
-    color: brighten(#fdd515, 30%);
+    color: white;
+    /*$bright-text-color-cal;*/
     background: #3d3b31;
     font-size: 30px; }
     @media screen and (max-width: 520px) {

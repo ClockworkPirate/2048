@@ -35,6 +35,7 @@ $game-container-background-cal: $secondary-color-cal;
 
 $background-color-stanf: #8C1515;
 $secondary-color-stanf: white;
+$stanf-grey: #4D4F53;
 
 $color-3-stanf: #5E3032;
 $color-4-stanf: #8D3C1E;
@@ -100,6 +101,10 @@ h1.title {
 	text-align: center;
 	margin: 0;
 	display: block;
+}
+
+h1.title.iefix {
+	font-size: 45px;
 }
 
 @include keyframes(move-up) {
@@ -230,7 +235,7 @@ h1.title {
 }
 
 .stanf .vote-bar-part-2 {
-	background-color: $game-container-background-stanf;
+	background-color: $stanf-grey;
 }
 
 .vote-bar-part-2 {
@@ -246,7 +251,7 @@ h1.title {
 	width: 150px;
 	display: table-cell;
 	border-radius: 0 3px 3px 0;
-	background-color: #4d4f53;/*$game-container-background-stanf;*/
+	background-color: $stanf-grey;
 	z-index: -10;
 }
 
@@ -731,7 +736,7 @@ hr {
 		.cal &.tile-#{$power} .tile-inner {
 			// Calculate base background color
 			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-			$mixed-background: mix($tile-gold-color-cal, $tile-color-cal, $gold-percent);
+			$mixed-background: mix($background-color-cal, $tile-color-cal, $gold-percent);
 
 			$nth-color: nth($special-colors-cal, $exponent);
 
@@ -743,7 +748,7 @@ hr {
 			}
 
 			@if $bright-color {
-				color: $bright-text-color-cal;
+				color: $aux-color-cal;
 			}
 
 			// Set background
@@ -825,7 +830,7 @@ hr {
 
 	// Super tiles (above 2048)
 	.cal &.tile-super .tile-inner {
-		color: $bright-text-color-cal;
+		color: $aux-color-cal; /*$bright-text-color-cal;*/
 		background: mix(#333, $tile-gold-color-cal, 95%);
 
 		font-size: 30px;
