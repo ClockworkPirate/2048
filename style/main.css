@@ -124,10 +124,10 @@ h1.title {
   content: "Votes"; }
 
 .vote-bar-container {
-  padding: 0 0 0 50px;
+  padding: 0 0 0 0;
+  float: right;
   height: 50px;
-  width: 500px;
-  margin: 0 20px;
+  margin: 0px 50px 10px 50px;
   bottom: -20px; }
 
 .cal .vote-bar-background {
@@ -189,7 +189,7 @@ h1.title {
   border-left: 1px solid white; }
 
 .stanf .vote-bar-divider {
-  border-left: 1px black; }
+  border-left: 1px solid black; }
 
 .vote-bar-divider {
   position: relative;
@@ -724,10 +724,12 @@ hr {
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards; }
 
-.above-game:after {
-  content: "";
-  display: block;
-  clear: both; }
+.above-game {
+  top: -200px; }
+  .above-game:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .game-intro {
   float: left;

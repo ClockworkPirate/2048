@@ -192,10 +192,10 @@ h1.title {
 }
 
 .vote-bar-container {
-	padding: 0 0 0 50px;
+	padding: 0 0 0 0;
+	float: right;
 	height: 50px;
-	width: 500px;
-	margin: 0 20px;
+	margin: 0px 50px 10px 50px;
 	bottom: -20px;
 }
 
@@ -271,7 +271,7 @@ h1.title {
 }
 
 .stanf .vote-bar-divider {
-	border-left: 1px $aux-color-stanf;
+	border-left: 1px solid $aux-color-stanf;
 }
 
 .vote-bar-divider {
@@ -803,6 +803,7 @@ hr {
 
 .above-game {
 	@include clearfix;
+	top: -200px;
 }
 
 .game-intro {
