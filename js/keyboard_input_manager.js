@@ -72,6 +72,8 @@ KeyboardInputManager.prototype.listen = function () {
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
+  this.bindButtonPress(".style-swap-button.cal", this.cal);
+  this.bindButtonPress(".style-swap-button.stanf", this.cal);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
@@ -126,6 +128,16 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 };
+
+KeyboardInputManager.prototype.cal = function (event) {
+    event.preventDefault();
+    this.emit("cal")
+}
+
+KeyboardInputManager.prototype.stanf = function (event) {
+    event.preventDefault();
+    this.emit("stanf")
+}
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
