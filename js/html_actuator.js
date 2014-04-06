@@ -1,8 +1,10 @@
 HTMLActuator = function() {
   this.tileContainer    = document.querySelector(".tile-container");
-  this.scoreContainer   = document.querySelector(".score-container");
+  this.winsContainer   = document.querySelector(".wins-container");
   this.bestContainer    = document.querySelector(".best-container");
+  this.lossesContainer  = document.querySelector(".losses-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.voteContainer    = document.querySelector(".vote-container");
 
   this.score = 0;
 }
@@ -21,7 +23,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
       });
     });
 
-    self.updateScore(metadata.score);
+    self.updateWins(metadata.wins);
+    self.updateLosses(metadata.losses);
     self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
@@ -103,22 +106,13 @@ HTMLActuator.prototype.positionClass = function (position) {
   return "tile-position-" + position.x + "-" + position.y;
 };
 
-HTMLActuator.prototype.updateScore = function (score) {
-  this.clearContainer(this.scoreContainer);
-
-  var difference = score - this.score;
-  this.score = score;
-
-  this.scoreContainer.textContent = this.score;
-
-  if (difference > 0) {
-    var addition = document.createElement("div");
-    addition.classList.add("score-addition");
-    addition.textContent = "+" + difference;
-
-    this.scoreContainer.appendChild(addition);
-  }
+HTMLActuator.prototype.updateWins = function() {
+    this.winsContainer.textContent = wins;
 };
+
+HTMLActuator.prototype.updateLosses = function() {
+    this.lossesContainer.textContent = losses;
+}
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
