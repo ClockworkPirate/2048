@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 GameManager = function(size, Actuator) {
+=======
+GameManager = function(size, InputManager, Actuator, StorageManager) {
+  this.votes          = 0;
+>>>>>>> FETCH_HEAD
   this.size           = size; // Size of the grid
   // this.inputManager   = new InputManager;
   // this.storageManager = new StorageManager;
@@ -10,9 +15,28 @@ GameManager = function(size, Actuator) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+<<<<<<< HEAD
   */
+=======
+  this.inputManager.on("cal", this.cal.bind(this));
+  thi.inputManager.on("stanf", this.stanf.bind(this));
+>>>>>>> FETCH_HEAD
 
   this.setup(true);
+}
+
+GameManager.prototype.cal = function() {
+  this.votes++;
+  if (this.votes > 100) {
+    style_toggle.switchToCal;
+  }
+}
+
+GameManager.prototype.stanf = function() {
+  this.votes--;
+  if (this.votes < -100) {
+    style_toggle.switchToStanf;
+  }
 }
 
 // Restart the game

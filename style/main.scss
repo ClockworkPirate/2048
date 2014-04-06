@@ -9,6 +9,9 @@ $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
+$background-color: #003A70;
+$secondary-color: #E09E19;
+
 $text-color: #776E65;
 $bright-text-color: #f9f6f2;
 
@@ -25,7 +28,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background: #faf8ef;
+  background: $background-color;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
@@ -336,12 +339,12 @@ hr {
   $limit: 11;
 
   // Colors for all 11 states, false = no special color
-  $special-colors: false false, // 2
-                   false false, // 4
-                   #f78e48 true, // 8
-                   #fc5e2e true, // 16
-                   #ff3333 true, // 32
-                   #ff0000 true, // 64
+  $special-colors: $secondary-color false, // 2
+                   #B9D3B6 false, // 4
+                   #2D637F true, // 8
+                   #E09E19 true, // 16
+                   #C2B9A7 true, // 32
+                   #D9661F true, // 64
                    false true, // 128
                    false true, // 256
                    false true, // 512
