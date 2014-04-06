@@ -1034,13 +1034,22 @@ hr {
 
   .chat-entry {
     width: 80%; } }
-.style-swap-button {
-  position: absolute;
-  width: 312px;
-  height: 512px;
-  z-index: 50;
-  overflow: hidden;
-  cursor: pointer; }
+
+ @media (width < 600px) {
+	.style-swap-button {
+    	display: none;
+    }
+  }
+
+  @media (width >= 600px) {
+    .style-swap-button {
+      position: absolute;
+      width: 312px;
+      height: 512px;
+      z-index: 50;
+      overflow: hidden;
+      cursor: pointer; }
+  }
 
 .style-swap-button.cal {
   left: 0px;
