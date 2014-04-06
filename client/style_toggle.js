@@ -21,24 +21,27 @@ switch_to_stanf = function () {
 }
 
 set_votes = function (votes) {
+  votes *= 5;
 	$bar = $(".vote-bar");
 	if (votes > 0)
 	{
 		$bar.removeClass("left");
 		$bar.addClass("right");
+	  $bar.width(votes);
+	  $bar.css("left", 200);
 	}
 	else if (votes < 0)
 	{
 		$bar.removeClass("right");
 		$bar.addClass("left");
+	  $bar.width(-votes);
+    $bar.css("left", 200 + votes);
 	}
 	else
 	{
 		$bar.removeClass("left");
 		$bar.removeClass("right");
 	}
-	$bar.css("width: " + votes + ";");
-	$bar.css("left:" + min(200 + votes, 200) + ";");
 
 	$(".vote-container:after").css("content: " + votes + ";");
 }
