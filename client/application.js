@@ -1,6 +1,7 @@
 game = null;
 var kbd;
 var lastMoveId = 0;
+var cooldown = false;
 
 
 processKey = function(direction) {
@@ -8,9 +9,14 @@ processKey = function(direction) {
 }
 
 makeMove = function(name, direction) {
-  console.log("makeMove");
-  Meteor.call('register_move', name, direction);
-  //Moves.insert({name: name, direction: direction, id: 0});
+  if(!cooldown) {
+    Meteor.call('register_move', name, direction);
+    //Moves.insert({name: name, direction: direction, id: 0});
+    cooldown = true;
+    setTimeout(function(){
+      cooldown = false
+    }, 2000);
+  }
 }
 
 
