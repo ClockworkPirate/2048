@@ -202,9 +202,9 @@ h1.title {
 
 .vote-bar-container {
 	padding: 0 0 0 0;
-	float: right;
+	float: left;
 	height: 50px;
-	margin: 0px 50px 10px 50px;
+	margin: 0px 0px 10px 0px;
 	bottom: -20px;
 }
 
@@ -218,7 +218,7 @@ h1.title {
 
 .vote-bar-part-1 {
 	height: 50px;
-	width: 100px;
+	width: 150px;
 	display: table-cell;
 	border-radius: 3px 0 0 3px;
 	background-color: $game-container-background-cal;
@@ -243,10 +243,10 @@ h1.title {
 
 .vote-bar-part-3 {
 	height: 50px;
-	width: 100px;
+	width: 150px;
 	display: table-cell;
 	border-radius: 0 3px 3px 0;
-	background-color: $game-container-background-stanf;
+	background-color: #4d4f53;/*$game-container-background-stanf;*/
 	z-index: -10;
 }
 
@@ -270,7 +270,7 @@ h1.title {
 	position: relative;
 	height: 30px;
 	top: -40px;
-	left: 25px;
+	left: 75px;
 	width: 175px;
 	z-index: 30;
 }
@@ -287,11 +287,32 @@ h1.title {
 	position: relative;
 	float: left;
 	width: 1;
-	left: 200px;
+	left: 250px;
 	z-index: 50;
 	width: 0px;
 	height: 50px;
 	top: -50px;
+}
+
+.logo {
+	position: relative;
+	float: left;
+	top: -87.5px;
+
+	z-index: 40;
+}
+
+.cal.logo {
+	right: 10px;
+}
+
+.stanf.logo {
+	left: 310px;
+}
+
+.logo img {
+	width: auto;
+	height: 64px;
 }
 
 p {
@@ -813,12 +834,13 @@ hr {
 .above-game {
 	@include clearfix;
 	top: -200px;
+	text-align: center;
 }
 
 .game-intro {
-	float: left;
 	line-height: 42px;
 	margin-bottom: 0;
+	display: inline-block;
 }
 
 .game-explanation {
@@ -907,17 +929,25 @@ hr {
 
 .style-swap-button {
 	position: absolute;
+	width: 512px;
+	height: 512px;
+	z-index: 50;
+
+	overflow: hidden;
+
 	cursor: pointer;
 }
 
 .style-swap-button.cal {
 	left: -200px;
 	top: 275px;
+	background-image: url(public/cal.png);
 }
 
 .style-swap-button.stanf {
 	right: -200px;
 	top: 25px;
+	background-image: url(public/stanford.png);
 
 	opacity: 0.5;
 }
