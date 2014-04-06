@@ -9,544 +9,920 @@ $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$background-color: #003A70;
-$secondary-color: #E09E19;
 
-$text-color: #776E65;
-$bright-text-color: #f9f6f2;
+$background-color-cal: #003A70;
+$secondary-color-cal: #FDD515;
 
-$tile-color: #eee4da;
-$tile-gold-color: #edc22e;
-$tile-gold-glow-color: lighten($tile-gold-color, 15%);
+$color-3-cal: #C2B9A7;
+$color-4-cal: #D9661F;
+$color-5-cal: #B9D3B6;
+$color-6-cal: #53626F;
+$color-7-cal: #6C3302;
 
-$game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$aux-color-cal: white;
+
+$text-color-cal: $secondary-color-cal;
+$secondary-text-color-cal: $background-color-cal;
+$bright-text-color-cal: brighten($secondary-color-cal, 30%);
+$secondary-bright-text-color-cal: brighten($background-color-cal, 30%);
+
+$tile-color-cal: darken($secondary-color-cal, 25%);
+$tile-gold-color-cal: $secondary-color-cal;
+$tile-gold-glow-color-cal: lighten($tile-gold-color-cal, 15%);
+
+$game-container-background-cal: $secondary-color-cal;
+
+
+$background-color-stanf: #8C1515;
+$secondary-color-stanf: white;
+
+$color-3-stanf: #5E3032;
+$color-4-stanf: #8D3C1E;
+$color-5-stanf: #00505C;
+$color-6-stanf: #175E54;
+$color-7-stanf: #53284F;
+
+$aux-color-stanf: black;
+
+$text-color-stanf: $secondary-color-stanf;
+$secondary-text-color-stanf: $background-color-stanf;
+$bright-text-color-stanf: brighten($secondary-color-stanf, 30%);
+$secondary-bright-text-color-stanf: brighten($background-color-stanf, 30%);
+
+$tile-color-stanf: darken($secondary-color-stanf, 25%);
+$tile-gold-color-stanf: $secondary-color-stanf;
+$tile-gold-glow-color-stanf: lighten($tile-gold-color-stanf, 15%);
+
+$game-container-background-stanf: $secondary-color-stanf;
+
+
+$game-container-margin-top: 10px;
 
 $transition-speed: 100ms;
 
 html, body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 
-  background: $background-color;
-  color: $text-color;
-  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
+	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	font-size: 18px;
+}
+
+html.cal, body.cal {
+	background: $background-color-cal;
+	color: $text-color-cal;
+}
+html.stanf, body.stanf {
+	background: $background-color-stanf;
+	color: $text-color-stanf;
 }
 
 body {
-  margin: 80px 0;
+	margin: 10px 0;
 }
 
 .heading {
-  @include clearfix;
+	@include clearfix;
 }
 
 h1.title {
-  font-size: 80px;
-  font-weight: bold;
-  margin: 0;
-  display: block;
-  float: left;
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+	margin: 0;
+	display: block;
 }
 
 @include keyframes(move-up) {
-  0% {
-    top: 25px;
-    opacity: 1;
-  }
+	0% {
+		top: 25px;
+		opacity: 1;
+	}
 
-  100% {
-    top: -50px;
-    opacity: 0;
-  }
+	100% {
+		top: -50px;
+		opacity: 0;
+	}
 }
 
 .scores-container {
-  float: right;
-  text-align: right;
+	text-align: center;
+	margin-bottom: 10px;
 }
 
-.score-container, .best-container {
-  $height: 25px;
+.cal .wins-container, .cal .losses-container, .cal .best-container, .cal .vote-descript, .cal .vote-container {
+	background: $game-container-background-cal;
+	color: $aux-color-cal;
 
-  position: relative;
-  display: inline-block;
-  background: $game-container-background;
-  padding: 15px 25px;
-  font-size: $height;
-  height: $height;
-  line-height: $height + 22px;
-  font-weight: bold;
-  border-radius: 3px;
-  color: white;
-  margin-top: 8px;
-  text-align: center;
+	&:after {
+		color: $secondary-text-color-cal;
+	}
 
-  &:after {
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    left: 0;
-    text-transform: uppercase;
-    font-size: 13px;
-    line-height: 13px;
-    text-align: center;
-    color: $tile-color;
-  }
-
-  .score-addition {
-    position: absolute;
-    right: 30px;
-    color: red;
-    font-size: $height;
-    line-height: $height;
-    font-weight: bold;
-    color: rgba($text-color, .9);
-    z-index: 100;
-    @include animation(move-up 600ms ease-in);
-    @include animation-fill-mode(both);
-  }
+	.score-addition {
+		color: red;
+		color: rgba($text-color-cal, .9);
+	}
 }
 
-.score-container:after {
-  content: "Score";
+.stanf .wins-container, .stanf .losses-container, .stanf .best-container, .stanf .vote-descript, .stanf .vote-container {
+	background: $game-container-background-stanf;
+	color: $aux-color-stanf;
+
+	&:after {
+		color: $secondary-text-color-stanf;
+	}
+
+	.score-addition {
+		color: red;
+		color: rgba($text-color-stanf, .9);
+	}
+}
+
+.wins-container, .losses-container, .best-container, .vote-descript, .vote-container {
+	$height: 20px;
+
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: $height;
+	height: $height;
+	line-height: $height + 15px;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-top: 8px;
+	text-align: center;
+
+	&:after {
+		position: absolute;
+		width: 100%;
+		top: 5px;
+		left: 0;
+		text-transform: uppercase;
+		font-size: 13px;
+		line-height: 13px;
+		text-align: center;
+	}
+
+	.score-addition {
+		position: absolute;
+		right: 30px;
+		font-size: $height;
+		line-height: $height;
+		font-weight: bold;
+		z-index: 100;
+		@include animation(move-up 600ms ease-in);
+		@include animation-fill-mode(both);
+	}
+}
+
+.wins-container:after {
+	content: "Wins";
+}
+
+.losses-container:after {
+	content: "Losses";
 }
 
 .best-container:after {
-  content: "Best"
+	content: "Best"
+}
+
+.vote-container:after {
+	content: "Votes";
+}
+
+.vote-bar-container {
+	padding: 0 0 0 50px;
+	height: 50px;
+	width: 500px;
+	margin: 0 20px;
+	bottom: -20px;
+}
+
+.cal .vote-bar-background {
+	background-color: $game-container-background-cal;
+}
+
+.stanf .vote-bar-background {
+	background-color: $game-container-background-stanf;
+}
+
+.vote-bar-part-1 {
+	height: 50px;
+	width: 100px;
+	display: table-cell;
+	border-radius: 3px 0 0 3px;
+	background-color: $game-container-background-cal;
+	z-index: -10;
+}
+
+.cal .vote-bar-part-2 {
+	background-color: $game-container-background-cal;
+}
+
+.stanf .vote-bar-part-2 {
+	background-color: $game-container-background-stanf;
+}
+
+.vote-bar-part-2 {
+	margin: 0;
+	height: 50px;
+	width: 200px;
+	display: table-cell;
+	z-index: -10;
+}
+
+.vote-bar-part-3 {
+	height: 50px;
+	width: 100px;
+	display: table-cell;
+	border-radius: 0 3px 3px 0;
+	background-color: $game-container-background-stanf;
+	z-index: -10;
+}
+
+.cal .vote-bar {
+	background-color: darken($secondary-color-cal, 20%);
+}
+
+.stanf .vote-bar {
+	background-color: darken($secondary-color-stanf, 20%);
+}
+
+.vote-bar.left {
+	border-radius: 3px 0 0 3px;
+}
+
+.vote-bar.right {
+	border-radius: 0 3px 3px 0;
+}
+
+.vote-bar {
+	position: relative;
+	height: 30px;
+	top: -40px;
+	left: 25px;
+	width: 175px;
+	z-index: 30;
+}
+
+.cal .vote-bar-divider {
+	border-left: 1px solid $aux-color-cal;
+}
+
+.stanf .vote-bar-divider {
+	border-left: 1px $aux-color-stanf;
+}
+
+.vote-bar-divider {
+	position: relative;
+	float: left;
+	width: 1;
+	left: 200px;
+	z-index: 50;
+	width: 0px;
+	height: 50px;
+	top: -50px;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.65;
+	margin-top: 0;
+	margin-bottom: 10px;
+	line-height: 1.65;
+}
+
+.cal a {
+	color: $text-color-cal;
+}
+
+.stanf a {
+	color: $text-color-stanf;
 }
 
 a {
-  color: $text-color;
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 strong {
-  &.important {
-    text-transform: uppercase;
-  }
+	&.important {
+		text-transform: uppercase;
+	}
 }
 
 hr {
-  border: none;
-  border-bottom: 1px solid lighten($text-color, 40%);
-  margin-top: 20px;
-  margin-bottom: 30px;
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.cal hr {
+	border-bottom: 1px solid $text-color-cal;
+}
+
+.stanf hr {
+	border-bottom: 1px solid $text-color-stanf;
 }
 
 .container {
-  width: $field-width;
-  margin: 0 auto;
+	width: $field-width;
+	margin: 0 auto;
+}
+
+.chat-view {
+	height: 100px;
+}
+
+.cal .chat-container {
+	background-color: $secondary-color-cal;
+}
+
+.stanf .chat-container {
+	background-color: $secondary-color-stanf;
+}
+
+.chat-container {
+	margin-top: 20px;
+	border-radius: 5px;
+	padding: 10px;
+	text-align: right;
+}
+
+.cal .chat-entry {
+	background-color: $game-container-background-cal;
+	color: $secondary-text-color-cal;
+}
+
+.stanf .chat-entry {
+	background-color: $game-container-background-stanf;
+	color: $secondary-text-color-stanf;
+}
+
+.chat-entry {
+	width: 89%;
+	border: none;
+	border-radius: 5px;
+}
+
+.cal .chat-entry-button {
+	background-color: $background-color-cal;
+	color: $text-color-cal;
+}
+
+.stanf .chat-entry-button {
+	background-color: $background-color-stanf;
+	color: $text-color-stanf;
+}
+
+.chat-entry-button {
+	border: 0px;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
 }
 
 @include keyframes(fade-in) {
-  0% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
 
-  100% {
-    opacity: 1;
-  }
+	100% {
+		opacity: 1;
+	}
 }
 
 // Styles for buttons
 @mixin button {
-  display: inline-block;
-  background: darken($game-container-background, 20%);
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: $bright-text-color;
-  height: 40px;
-  line-height: 42px;
+	display: inline-block;
+	border-radius: 3px;
+	padding: 0 20px;
+	text-decoration: none;
+	height: 40px;
+	line-height: 42px;
+}
+
+@mixin button-cal {
+	background: $game-container-background-cal;
+	color: $secondary-text-color-cal;
+}
+
+@mixin button-stanf {
+	background: $game-container-background-stanf;
+	color: $secondary-text-color-stanf;
 }
 
 // Game field mixin used to render CSS at different width
 @mixin game-field {
-  .game-container {
-    margin-top: $game-container-margin-top;
-    position: relative;
-    padding: $grid-spacing;
-
-    cursor: default;
-    -webkit-touch-callout: none;
-    -ms-touch-callout: none;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-
-    -ms-touch-action: none;
-    touch-action: none;
-
-    background: $game-container-background;
-    border-radius: $tile-border-radius * 2;
-    width: $field-width;
-    height: $field-width;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    .game-message {
-      display: none;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($tile-color, .5);
-      z-index: 100;
-
-      text-align: center;
-
-      p {
-        font-size: 60px;
-        font-weight: bold;
-        height: 60px;
-        line-height: 60px;
-        margin-top: 222px;
-        // height: $field-width;
-        // line-height: $field-width;
-      }
-
-      .lower {
-        display: block;
-        margin-top: 59px;
-      }
-
-      a {
-        @include button;
-        margin-left: 9px;
-        // margin-top: 59px;
-
-	&.keep-playing-button {
-	  display: none;
+	.cal .game-container {
+		background: $game-container-background-cal;
 	}
-      }
 
-      @include animation(fade-in 800ms ease $transition-speed * 12);
-      @include animation-fill-mode(both);
-
-      &.game-won {
-        background: rgba($tile-gold-color, .5);
-        color: $bright-text-color;
-
-	a.keep-playing-button {
-	  display: inline-block;
+	.stanf .game-container {
+		background: $game-container-background-stanf;
 	}
-      }
 
-      &.game-won, &.game-over {
-        display: block;
-      }
-    }
-  }
+	.game-container {
+		margin-top: $game-container-margin-top;
+		position: relative;
+		padding: $grid-spacing;
 
-  .grid-container {
-    position: absolute;
-    z-index: 1;
-  }
+		cursor: default;
+		-webkit-touch-callout: none;
+		-ms-touch-callout: none;
 
-  .grid-row {
-    margin-bottom: $grid-spacing;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+		-ms-touch-action: none;
+		touch-action: none;
 
-    &:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-  }
+		border-radius: $tile-border-radius * 2;
+		width: $field-width;
+		height: $field-width;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 
-  .grid-cell {
-    width: $tile-size;
-    height: $tile-size;
-    margin-right: $grid-spacing;
-    float: left;
+		.game-message {
+			display: none;
 
-    border-radius: $tile-border-radius;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba($tile-color-cal, .5);
+			z-index: 100;
 
-    background: rgba($tile-color, .35);
+			text-align: center;
 
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+			p {
+				font-size: 60px;
+				font-weight: bold;
+				height: 60px;
+				line-height: 60px;
+				margin-top: 222px;
+				// height: $field-width;
+				// line-height: $field-width;
+			}
 
-  .tile-container {
-    position: absolute;
-    z-index: 2;
-  }
+			.lower {
+				display: block;
+				margin-top: 59px;
+			}
 
-  .tile {
-    &, .tile-inner {
-      width: ceil($tile-size);
-      height: ceil($tile-size);
-      line-height: $tile-size + 10px;
-    }
+			a {
+				@include button;
+				margin-left: 9px;
+				// margin-top: 59px;
 
-    // Build position classes
-    @for $x from 1 through $grid-row-cells {
-      @for $y from 1 through $grid-row-cells {
-        &.tile-position-#{$x}-#{$y} {
-          $xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
-          $yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
-          @include transform(translate($xPos, $yPos));
-        }
-      }
-    }
-  }
+				.cal a {
+					@include button-cal;
+				}
+
+				.stanf a {
+					@include button-stanf;
+				}
+
+				&.keep-playing-button {
+					display: none;
+				}
+			}
+
+			@include animation(fade-in 800ms ease $transition-speed * 12);
+			@include animation-fill-mode(both);
+
+			.cal &.game-won {
+				background: rgba($tile-gold-color-cal, .5);
+				color: $bright-text-color-cal;
+			}
+
+			.stanf &.game-won {
+				background: rgba($tile-gold-color-stanf, .5);
+				color: $bright-text-color-stanf;
+			}
+
+			&.game-won {
+
+				a.keep-playing-button {
+					display: inline-block;
+				}
+			}
+
+			&.game-won, &.game-over {
+				display: block;
+			}
+		}
+	}
+
+	.grid-container {
+		position: absolute;
+		z-index: 1;
+	}
+
+	.grid-row {
+		margin-bottom: $grid-spacing;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+
+	.cal .grid-cell {
+		background: rgba($tile-color-cal, .35);
+	}
+
+	.stanf .grid-cell {
+		background: rgba($tile-color-stanf, .35);
+	}
+
+	.grid-cell {
+		width: $tile-size;
+		height: $tile-size;
+		margin-right: $grid-spacing;
+		float: left;
+
+		border-radius: $tile-border-radius;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.tile-container {
+		position: absolute;
+		z-index: 2;
+	}
+
+	.tile {
+		&, .tile-inner {
+			width: ceil($tile-size);
+			height: ceil($tile-size);
+			line-height: $tile-size + 10px;
+		}
+
+		// Build position classes
+		@for $x from 1 through $grid-row-cells {
+			@for $y from 1 through $grid-row-cells {
+				&.tile-position-#{$x}-#{$y} {
+					$xPos: floor(($tile-size + $grid-spacing) * ($x - 1));
+					$yPos: floor(($tile-size + $grid-spacing) * ($y - 1));
+					@include transform(translate($xPos, $yPos));
+				}
+			}
+		}
+	}
 }
 
 // End of game-field mixin
 @include game-field;
 
 .tile {
-  position: absolute; // Makes transforms relative to the top-left corner
+	position: absolute; // Makes transforms relative to the top-left corner
 
-  .tile-inner {
-    border-radius: $tile-border-radius;
+	.cal .tile-inner {
+		background: $tile-color-cal;
+	}
 
-    background: $tile-color;
-    text-align: center;
-    font-weight: bold;
-    z-index: 10;
+	.stanf .tile-inner {
+		background: $tile-color-stanf;
+	}
 
-    font-size: 55px;
-  }
+	.tile-inner {
+		border-radius: $tile-border-radius;
+		text-align: center;
+		font-weight: bold;
+		z-index: 10;
 
-  // Movement transition
-  @include transition($transition-speed ease-in-out);
-  -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  transition-property: transform;
+		font-size: 55px;
+	}
 
-  $base: 2;
-  $exponent: 1;
-  $limit: 11;
+	// Movement transition
+	@include transition($transition-speed ease-in-out);
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
 
-  // Colors for all 11 states, false = no special color
-  $special-colors: $secondary-color false, // 2
-                   #B9D3B6 false, // 4
-                   #2D637F true, // 8
-                   #E09E19 true, // 16
-                   #C2B9A7 true, // 32
-                   #D9661F true, // 64
-                   false true, // 128
-                   false true, // 256
-                   false true, // 512
-                   false true, // 1024
-                   false true; // 2048
+	$base: 2;
+	$exponent: 1;
+	$limit: 11;
 
-  // Build tile colors
-  @while $exponent <= $limit {
-    $power: pow($base, $exponent);
+	// Colors for all 11 states, false = no special color
+	$special-colors-cal: $secondary-color-cal false, // 2
+									 $color-3-cal false, // 4
+									 $color-4-cal true, // 8
+									 $color-5-cal true, // 16
+									 $color-6-cal true, // 32
+									 $color-7-cal true, // 64
+									 false true, // 128
+									 false true, // 256
+									 false true, // 512
+									 false true, // 1024
+									 false true; // 2048
 
-    &.tile-#{$power} .tile-inner {
-      // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+	// Colors for all 11 states, false = no special color
+	$special-colors-stanf: $secondary-color-stanf false, // 2
+									 $color-3-stanf false, // 4
+									 $color-4-stanf true, // 8
+									 $color-5-stanf true, // 16
+									 $color-6-stanf true, // 32
+									 $color-7-stanf true, // 64
+									 false true, // 128
+									 false true, // 256
+									 false true, // 512
+									 false true, // 1024
+									 false true; // 2048
 
-      $nth-color: nth($special-colors, $exponent);
+	// Build tile colors
+	@while $exponent <= $limit {
+		$power: pow($base, $exponent);
 
-      $special-background: nth($nth-color, 1);
-      $bright-color: nth($nth-color, 2);
+		.cal &.tile-#{$power} .tile-inner {
+			// Calculate base background color
+			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+			$mixed-background: mix($tile-gold-color-cal, $tile-color-cal, $gold-percent);
 
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
+			$nth-color: nth($special-colors-cal, $exponent);
 
-      @if $bright-color {
-        color: $bright-text-color;
-      }
+			$special-background: nth($nth-color, 1);
+			$bright-color: nth($nth-color, 2);
 
-      // Set background
-      background: $mixed-background;
+			@if $special-background {
+				$mixed-background: mix($special-background, $mixed-background, 55%);
+			}
 
-      // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+			@if $bright-color {
+				color: $bright-text-color-cal;
+			}
 
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
+			// Set background
+			background: $mixed-background;
 
-      // Adjust font size for bigger numbers
-      @if $power >= 100 and $power < 1000 {
-        font-size: 45px;
+			// Add glow
+			$glow-opacity: max($exponent - 4, 0) / ($limit - 4);
 
-        // Media queries placed here to avoid carrying over the rest of the logic
-        @include smaller($mobile-threshold) {
-          font-size: 25px;
-        }
-      } @else if $power >= 1000 {
-        font-size: 35px;
+			@if not $special-background {
+				box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color-cal, $glow-opacity / 1.8),
+										inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+			}
 
-        @include smaller($mobile-threshold) {
-          font-size: 15px;
-        }
-      }
-    }
+			// Adjust font size for bigger numbers
+			@if $power >= 100 and $power < 1000 {
+				font-size: 45px;
 
-    $exponent: $exponent + 1;
-  }
+				// Media queries placed here to avoid carrying over the rest of the logic
+				@include smaller($mobile-threshold) {
+					font-size: 25px;
+				}
+			} @else if $power >= 1000 {
+				font-size: 35px;
 
-  // Super tiles (above 2048)
-  &.tile-super .tile-inner {
-    color: $bright-text-color;
-    background: mix(#333, $tile-gold-color, 95%);
+				@include smaller($mobile-threshold) {
+					font-size: 15px;
+				}
+			}
+		}
 
-    font-size: 30px;
+		.stanf &.tile-#{$power} .tile-inner {
+			// Calculate base background color
+			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+			$mixed-background: mix($tile-gold-color-stanf, $tile-color-stanf, $gold-percent);
 
-    @include smaller($mobile-threshold) {
-      font-size: 10px;
-    }
-  }
+			$nth-color: nth($special-colors-stanf, $exponent);
+
+			$special-background: nth($nth-color, 1);
+			$bright-color: nth($nth-color, 2);
+
+			@if $special-background {
+				$mixed-background: mix($special-background, $mixed-background, 55%);
+			}
+
+			@if $bright-color {
+				color: $bright-text-color-stanf;
+			}
+
+			// Set background
+			background: $mixed-background;
+
+			// Add glow
+			$glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+
+			@if not $special-background {
+				box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color-stanf, $glow-opacity / 1.8),
+										inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+			}
+
+			// Adjust font size for bigger numbers
+			@if $power >= 100 and $power < 1000 {
+				font-size: 45px;
+
+				// Media queries placed here to avoid carrying over the rest of the logic
+				@include smaller($mobile-threshold) {
+					font-size: 25px;
+				}
+			} @else if $power >= 1000 {
+				font-size: 35px;
+
+				@include smaller($mobile-threshold) {
+					font-size: 15px;
+				}
+			}
+		}
+
+		$exponent: $exponent + 1;
+	}
+
+	// Super tiles (above 2048)
+	.cal &.tile-super .tile-inner {
+		color: $bright-text-color-cal;
+		background: mix(#333, $tile-gold-color-cal, 95%);
+
+		font-size: 30px;
+
+		@include smaller($mobile-threshold) {
+			font-size: 10px;
+		}
+	}
+
+	.stanf &.tile-super .tile-inner {
+		color: $bright-text-color-stanf;
+		background: mix(#333, $tile-gold-color-stanf, 95%);
+
+		font-size: 30px;
+
+		@include smaller($mobile-threshold) {
+			font-size: 10px;
+		}
+	}
 }
 
 @include keyframes(appear) {
-  0% {
-    opacity: 0;
-    @include transform(scale(0));
-  }
+	0% {
+		opacity: 0;
+		@include transform(scale(0));
+	}
 
-  100% {
-    opacity: 1;
-    @include transform(scale(1));
-  }
+	100% {
+		opacity: 1;
+		@include transform(scale(1));
+	}
 }
 
 .tile-new .tile-inner {
-  @include animation(appear 200ms ease $transition-speed);
-  @include animation-fill-mode(backwards);
+	@include animation(appear 200ms ease $transition-speed);
+	@include animation-fill-mode(backwards);
 }
 
 @include keyframes(pop) {
-  0% {
-    @include transform(scale(0));
-  }
+	0% {
+		@include transform(scale(0));
+	}
 
-  50% {
-    @include transform(scale(1.2));
-  }
+	50% {
+		@include transform(scale(1.2));
+	}
 
-  100% {
-    @include transform(scale(1));
-  }
+	100% {
+		@include transform(scale(1));
+	}
 }
 
 .tile-merged .tile-inner {
-  z-index: 20;
-  @include animation(pop 200ms ease $transition-speed);
-  @include animation-fill-mode(backwards);
+	z-index: 20;
+	@include animation(pop 200ms ease $transition-speed);
+	@include animation-fill-mode(backwards);
 }
 
 .above-game {
-  @include clearfix;
+	@include clearfix;
 }
 
 .game-intro {
-  float: left;
-  line-height: 42px;
-  margin-bottom: 0;
+	float: left;
+	line-height: 42px;
+	margin-bottom: 0;
+}
+
+.cal .restart-button {
+	@include button-cal;
+}
+
+.stanf .restart-button {
+	@include button-stanf;
 }
 
 .restart-button {
-  @include button;
-  display: block;
-  text-align: center;
-  float: right;
+	@include button;
+	display: block;
+	text-align: center;
+	float: right;
 }
 
 .game-explanation {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 
 @include smaller($mobile-threshold) {
-  // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
+	// Redefine variables for smaller screens
+	$field-width: 280px;
+	$grid-spacing: 10px;
+	$grid-row-cells: 4;
+	$tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+	$tile-border-radius: 3px;
+	$game-container-margin-top: 17px;
 
-  html, body {
-    font-size: 15px;
-  }
+	html, body {
+		font-size: 15px;
+	}
 
-  body {
-    margin: 20px 0;
-    padding: 0 20px;
-  }
+	body {
+		margin: 20px 0;
+		padding: 0 20px;
+	}
 
-  h1.title {
-    font-size: 27px;
-    margin-top: 15px;
-  }
+	h1.title {
+		font-size: 28px;
+		margin-top: 15px;
+	}
 
-  .container {
-    width: $field-width;
-    margin: 0 auto;
-  }
+	.container {
+		width: $field-width;
+		margin: 0 auto;
+	}
 
-  .score-container, .best-container {
-    margin-top: 0;
-    padding: 15px 10px;
-    min-width: 40px;
-  }
+	.wins-container, .losses-container, .best-container {
+		margin-top: 0;
+		padding: 15px 10px;
+		min-width: 40px;
+	}
 
-  .heading {
-    margin-bottom: 10px;
-  }
+	.heading {
+		margin-bottom: 10px;
+	}
 
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
-  }
+	// Show intro and restart button side by side
+	.game-intro {
+		width: 55%;
+		display: block;
+		box-sizing: border-box;
+		line-height: 1.65;
+	}
 
-  .restart-button {
-    width: 42%;
-    padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
-  }
+	.restart-button {
+		width: 42%;
+		padding: 0;
+		display: block;
+		box-sizing: border-box;
+		margin-top: 2px;
+	}
 
-  // Render the game field at the right width
-  @include game-field;
+	// Render the game field at the right width
+	@include game-field;
 
-  // Rest of the font-size adjustments in the tile class
-  .tile .tile-inner {
-    font-size: 35px;
-  }
+	// Rest of the font-size adjustments in the tile class
+	.tile .tile-inner {
+		font-size: 35px;
+	}
 
-  .game-message {
-    p {
-      font-size: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-      margin-top: 90px !important;
-    }
+	.game-message {
+		p {
+			font-size: 30px !important;
+			height: 30px !important;
+			line-height: 30px !important;
+			margin-top: 90px !important;
+		}
 
-    .lower {
-      margin-top: 30px !important;
-    }
-  }
+		.lower {
+			margin-top: 30px !important;
+		}
+	}
+
+	.chat-entry {
+		width: 80%;
+	}
+}
+
+.style-swap-button {
+	position: absolute;
+	cursor: pointer;
+}
+
+.style-swap-button.cal {
+	left: -200px;
+	top: 275px;
+}
+
+.style-swap-button.stanf {
+	right: -200px;
+	top: 25px;
+
+	opacity: 0.5;
 }

@@ -3,18 +3,18 @@
 	<title>Big Hack Plays 2048!</title>
 
 	<link href="style/main.css" rel="stylesheet" type="text/css">
-	<!-- <link href="style/main.less" rel="stylesheet" type="text/css"> -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
-	// <script src="js/less.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/style_toggle.js"></script> 
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
-<body>
+<body class="cal">
 	<div class="container">
 		<div class="heading">
 			<h1 class="title">Big Hack Plays 2048!</h1>
@@ -22,6 +22,14 @@
 				<div class="wins-container">0</div>
 				<div class="losses-container">0</div>
 				<div class="best-container">0</div>
+				<div class="vote-container">0</div>
+			</div>
+			<div class="vote-bar-container">
+				<div class="vote-bar-part-1"></div>
+				<div class="vote-bar-part-2"></div>
+				<div class="vote-bar-part-3"></div>
+				<div class="vote-bar-divider"></div>
+				<div class="vote-bar left"></div>
 			</div>
 		</div>
 
@@ -71,16 +79,30 @@
 			</div>
 		</div>
 
+		<div>
+			<div class="chat-container chat-view">
+				Nothing here!
+			</div>
+			<div class="chat-container chat-entry-container">
+				<input class="chat-entry"/>
+				<button class="chat-entry-button">Send!</button>
+			</div>
+		</div>
+
 		<p class="game-explanation">
-			<strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+			<strong class="important">How to play:</strong> Type your moves into the <strong>chat box</strong> above and hope everyone else doesn't make us lose!
+			<strong>Vote</strong> to change the game's <strong>color scheme</strong> by clicking on the <strong>mascots</strong> on the edges of the page!
 		</p>
 		<hr>
 		<p>
-		<strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
+		<strong class="important">Note:</strong> This site is <strong>not</strong> the official version of 2048. You can play <strong>that</strong> on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites (such as this one!) are derivatives or fakes, and should be used with caution (don't worry, ours is okay :)).
 		</p>
 		<hr>
 		<p>
-		Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+		A blatant ripoff of <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli</a>'s 2048. Go play that too! 
 		</p>
 	</div>
+
+	<img src="cal.png" class="style-swap-button cal">
+	<img src="stanford.png" class="style-swap-button stanf">
 </body>
