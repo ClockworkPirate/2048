@@ -64,25 +64,25 @@ h1.title {
   text-align: center;
   margin-bottom: 10px; }
 
-.cal .wins-container, .cal .losses-container, .cal .best-container, .cal .vote-descript, .cal .vote-container {
+.cal .wins-container, .cal .losses-container, .cal .best-container {
   background: #fdd515;
   color: white; }
-  .cal .wins-container:after, .cal .losses-container:after, .cal .best-container:after, .cal .vote-descript:after, .cal .vote-container:after {
+  .cal .wins-container:after, .cal .losses-container:after, .cal .best-container:after {
     color: #003a70; }
-  .cal .wins-container .score-addition, .cal .losses-container .score-addition, .cal .best-container .score-addition, .cal .vote-descript .score-addition, .cal .vote-container .score-addition {
+  .cal .wins-container .score-addition, .cal .losses-container .score-addition, .cal .best-container .score-addition {
     color: red;
     color: rgba(253, 213, 21, 0.9); }
 
-.stanf .wins-container, .stanf .losses-container, .stanf .best-container, .stanf .vote-descript, .stanf .vote-container {
+.stanf .wins-container, .stanf .losses-container, .stanf .best-container {
   background: white;
   color: black; }
-  .stanf .wins-container:after, .stanf .losses-container:after, .stanf .best-container:after, .stanf .vote-descript:after, .stanf .vote-container:after {
+  .stanf .wins-container:after, .stanf .losses-container:after, .stanf .best-container:after {
     color: #8c1515; }
-  .stanf .wins-container .score-addition, .stanf .losses-container .score-addition, .stanf .best-container .score-addition, .stanf .vote-descript .score-addition, .stanf .vote-container .score-addition {
+  .stanf .wins-container .score-addition, .stanf .losses-container .score-addition, .stanf .best-container .score-addition {
     color: red;
     color: rgba(255, 255, 255, 0.9); }
 
-.wins-container, .losses-container, .best-container, .vote-descript, .vote-container {
+.wins-container, .losses-container, .best-container {
   position: relative;
   display: inline-block;
   padding: 15px 25px;
@@ -93,7 +93,7 @@ h1.title {
   border-radius: 3px;
   margin-top: 8px;
   text-align: center; }
-  .wins-container:after, .losses-container:after, .best-container:after, .vote-descript:after, .vote-container:after {
+  .wins-container:after, .losses-container:after, .best-container:after {
     position: absolute;
     width: 100%;
     top: 5px;
@@ -102,7 +102,7 @@ h1.title {
     font-size: 13px;
     line-height: 13px;
     text-align: center; }
-  .wins-container .score-addition, .losses-container .score-addition, .best-container .score-addition, .vote-descript .score-addition, .vote-container .score-addition {
+  .wins-container .score-addition, .losses-container .score-addition, .best-container .score-addition {
     position: absolute;
     right: 30px;
     font-size: 20px;

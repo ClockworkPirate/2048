@@ -117,7 +117,7 @@ h1.title {
 	margin-bottom: 10px;
 }
 
-.cal .wins-container, .cal .losses-container, .cal .best-container, .cal .vote-descript, .cal .vote-container {
+.cal .wins-container, .cal .losses-container, .cal .best-container {
 	background: $game-container-background-cal;
 	color: $aux-color-cal;
 
@@ -131,7 +131,7 @@ h1.title {
 	}
 }
 
-.stanf .wins-container, .stanf .losses-container, .stanf .best-container, .stanf .vote-descript, .stanf .vote-container {
+.stanf .wins-container, .stanf .losses-container, .stanf .best-container {
 	background: $game-container-background-stanf;
 	color: $aux-color-stanf;
 
@@ -145,7 +145,7 @@ h1.title {
 	}
 }
 
-.wins-container, .losses-container, .best-container, .vote-descript, .vote-container {
+.wins-container, .losses-container, .best-container {
 	$height: 20px;
 
 	position: relative;
