@@ -1,5 +1,6 @@
 var game;
 
+
 Meteor.startup(function () {
   game = new GameManager(4, ServerActuator);
   Moves.insert({id: 0});
@@ -8,6 +9,7 @@ Meteor.startup(function () {
 
 
 var commandList = [];
+var votes = 0;
 var waiting = false;
 
 Meteor.methods({
@@ -17,6 +19,10 @@ Meteor.methods({
     //Moves.insert({name: name, direction: direction, id: counter});
   }
   
+  register_vote: function(name, direction) {
+    if (votes < 175 && votes > -175)
+      votes += direction;
+  }
 });
 
 Meteor.setInterval(function () {
@@ -30,7 +36,8 @@ Meteor.setInterval(function () {
       name: m[0],
       direction: m[1],
       grid: game.grid,
-      newTile: newTile
+      newTile: newTile,
+      votes: votes
     });
     Moves.remove({
       id: {$lt: lastId - 10}

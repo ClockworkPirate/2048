@@ -2,6 +2,7 @@ game = null;
 var kbd;
 var lastMoveId = 0;
 var cooldown = false;
+var votes;
 
 
 processKey = function(direction) {
@@ -39,6 +40,13 @@ checkUpdates = function () {
       }
     }
     lastMoveId = m.id;
+    votes = m.votes;
+    if (votes > 100) {
+      switch_to_cal();
+    }
+    else if (votes < 100) {
+      switch_to_stanf();
+    }
   }
 }
 // Wait till the browser is ready to render the game (avoids glitches)
