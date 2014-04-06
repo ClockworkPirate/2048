@@ -1,3 +1,4 @@
+@charset "IBM437";
 @import url(fonts/clear-sans.css);
 html, body {
   margin: 0;
@@ -226,7 +227,8 @@ h1.title {
 
 .logo img {
   width: auto;
-  height: 64px; }
+  height: 64px;
+  cursor: pointer; }
 
 p {
   margin-top: 0;
@@ -262,48 +264,89 @@ hr {
   width: 500px;
   margin: 0 auto; }
 
-.chat-view {
-  height: 100px; }
-
-.cal .chat-container {
-  background-color: #fdd515; }
-
-.stanf .chat-container {
-  background-color: white; }
-
-.chat-container {
+.box {
   margin-top: 20px;
   border-radius: 5px;
   padding: 10px;
-  text-align: right; }
+  text-align: left; }
 
-.cal .chat-entry {
+.cal .box {
   background-color: #fdd515;
   color: #003a70; }
 
-.stanf .chat-entry {
+.stanf .box {
   background-color: white;
   color: #8c1515; }
 
-.chat-entry {
-  width: 89%;
-  border: none;
-  border-radius: 5px; }
+.commands {
+  max-height: 400px;
+  overflow: hidden;
+  list-style-type: none; }
 
-.cal .chat-entry-button {
-  background-color: #003a70;
-  color: #fdd515; }
+.command.valid-false {
+  color: #999999; }
 
-.stanf .chat-entry-button {
-  background-color: #8c1515;
-  color: white; }
-
-.chat-entry-button {
-  border: 0px;
+.name-field {
+  font-size: 20px;
+  font-family: inherit;
+  padding: 10px;
   border-radius: 5px;
-  padding: 5px;
+  width: 455px;
+  outline: none;
+  display: none;
+  z-index: 100; }
+
+.edit .name-field {
+  display: block; }
+
+.edit .welcome {
+  display: none; }
+
+.welcome .name {
+  font-weight: bold;
+  text-decoration: underline;
   cursor: pointer; }
 
+.command {
+  height: 20px;
+  padding: 4px 0; }
+
+.command.direction-0:before {
+  content: "▲ "; }
+
+.command.direction-1:before {
+  content: "▶ "; }
+
+.command.direction-2:before {
+  content: "▼ "; }
+
+.command.direction-3:before {
+  content: "◀ "; }
+
+/*
+.chat-entry {
+	width: 89%;
+	border: none;
+	border-radius: 5px;
+}
+
+.cal .chat-entry-button {
+	background-color: $background-color-cal;
+	color: $text-color-cal;
+}
+
+.stanf .chat-entry-button {
+	background-color: $background-color-stanf;
+	color: $text-color-stanf;
+}
+
+.chat-entry-button {
+	border: 0px;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+*/
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0; }
@@ -768,16 +811,35 @@ hr {
   margin-top: 50px; }
 
 @media screen and (max-width: 520px) {
+  .above-game, .vote-bar-part-1, .vote-bar-part-2, .vote-bar-part-3,
+  .vote-bar-divider, .vote-bar {
+    display: none; }
+
+  .vote-bar-container {
+    height: 0; }
+
+  .logo {
+    top: -55px; }
+
+  .stanf.logo {
+    left: 140px; }
+
+  .name-field {
+    width: 235px; }
+
+  .style-swap-button {
+    display: none; }
+
   html, body {
     font-size: 15px; }
 
   body {
-    margin: 20px 0;
-    padding: 0 20px; }
+    margin: 20px 0; }
 
   h1.title {
-    font-size: 28px;
-    margin-top: 15px; }
+    font-size: 26px;
+    margin-top: 15px;
+    padding-bottom: 15px; }
 
   .container {
     width: 280px;
@@ -996,19 +1058,45 @@ hr {
     width: 80%; } }
 .style-swap-button {
   position: absolute;
-  width: 512px;
+  width: 312px;
   height: 512px;
-  z-index: 50;
+  z-index: 0;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  opacity: 1;
+  transition: 1s opacity;
+  -webkit-transition: 1s opacity;
+  -moz-transition: 1s opacity; }
 
 .style-swap-button.cal {
-  left: -200px;
-  top: 275px;
-  background-image: url(public/cal.png); }
+  left: 0px;
+  top: 275px; }
+
+.wrapper.stanf .style-swap-button.cal img {
+  opacity: 0.5; }
 
 .style-swap-button.stanf {
-  right: -200px;
-  top: 25px;
+  right: 0px;
+  top: 25px; }
+
+.wrapper.cal .style-swap-button.stanf img {
   background-image: url(public/stanford.png);
   opacity: 0.5; }
+
+@media screen and (max-width: 1000px) {
+  .style-swap-button {
+    opacity: 0; } }
+.commands {
+  position: absolute;
+  top: 330px;
+  left: 50%;
+  width: 120px;
+  margin-left: 265px; }
+
+@media screen and (max-width: 1380px) {
+  .commands {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    margin-left: 0; } }
