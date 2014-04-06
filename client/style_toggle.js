@@ -23,6 +23,12 @@ Template.app.rendered = function() {
       switchToPlayMode();
     }
   }
+
+  // Fix placement of Stanford logo button in IE
+  if ($(".vote-button-iefix").length)
+  {
+    $(".stanf.logo.vote-button").addClass("iefix");
+  }
 }
 
 
