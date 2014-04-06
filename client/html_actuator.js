@@ -2,7 +2,7 @@ HTMLActuator = function() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.winsContainer   = document.querySelector(".wins-container");
   this.lossesContainer  = document.querySelector(".losses-container");
-  this.voteContainer    = document.querySelector(".vote-container");
+  this.votesContainer    = document.querySelector(".votes-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
 
@@ -26,6 +26,7 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     self.updateWins(metadata.wins);
     self.updateLosses(metadata.losses);
     self.updateBestScore(metadata.bestScore);
+    self.updateVotes(metadata.votes);
 
     if (metadata.terminated) {
       if (metadata.over) {
@@ -112,6 +113,10 @@ HTMLActuator.prototype.updateWins = function() {
 
 HTMLActuator.prototype.updateLosses = function() {
     this.lossesContainer.textContent = losses;
+};
+
+HTMLActuator.prototype.updateVotes = function() {
+    this.votesContainer.textContet = votes;
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
