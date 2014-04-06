@@ -16,6 +16,11 @@
 	<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+  {{> app}}
+</body>
+
+<template name="app">
+  
 	<div class="wrapper cal">
 		<div class="container">
 			<div class="heading">
@@ -108,4 +113,5 @@
 		<img src="cal.png" class="style-swap-button cal">
 		<img src="stanford.png" class="style-swap-button stanf">
 	</div>
-</body>
+  
+</template>

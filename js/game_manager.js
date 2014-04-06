@@ -7,8 +7,10 @@ GameManager = function(size, Actuator) {
 
   this.startTiles     = 2;
   
+  /*
   this.inputManager.on("cal", this.cal.bind(this));
   this.inputManager.on("stanf", this.stanf.bind(this));
+  */
 
   /*
   this.inputManager.on("move", this.move.bind(this));

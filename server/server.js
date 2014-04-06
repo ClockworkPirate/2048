@@ -17,7 +17,7 @@ Meteor.methods({
   register_move: function(name, direction) {
     commandList.push([name, direction]);
     //Moves.insert({name: name, direction: direction, id: counter});
-  }
+  },
   
   register_vote: function(name, direction) {
     if (votes < 175 && votes > -175)

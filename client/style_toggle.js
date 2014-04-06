@@ -1,14 +1,11 @@
-$(document).ready(function ()
-{
-	$("img.cal").click(function ()
-	{
-		Meteor.call('register_vote', $(".name-field").val(), -1);
-	});
-
-	$("img.stanf").click(function ()
-	{
-		Meteor.call('register_vote', $(".name-field").val(), 1);
-	});
+Template.app.events({
+  "click img.cal": function() {
+    Meteor.call('register_vote', $(".name-field").val(), -1);
+  },
+  
+  "click img.stanf": function() {
+    Meteor.call('register_vote', $(".name-field").val(), 1);
+  }
 });
 
 switch_to_cal = function () {
