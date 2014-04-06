@@ -36,7 +36,7 @@ h1.title {
   display: block; }
 
 h1.title.iefix {
-  font-size: 45px; }
+  font-size: 40px; }
 
 @-webkit-keyframes move-up {
   0% {
@@ -568,40 +568,42 @@ hr {
     z-index: 10;
     font-size: 55px; }
   .cal .tile.tile-2 .tile-inner {
-    background: #ccab0c; }
+    color: white;
+    background: #8b8f3d; }
   .stanf .tile.tile-2 .tile-inner {
-    background: #e2e2e2; }
+    background: #cb9595; }
   .cal .tile.tile-4 .tile-inner {
-    background: #a59861; }
+    color: white;
+    background: #758894; }
   .stanf .tile.tile-4 .tile-inner {
-    background: #8c7374; }
+    background: #772e2f; }
   .cal .tile.tile-8 .tile-inner {
     color: white;
-    background: #ab681b; }
+    background: #8e6350; }
   .stanf .tile.tile-8 .tile-inner {
     color: brighten(white, 30%);
-    background: #a87c6b; }
+    background: #963f2e; }
   .cal .tile.tile-16 .tile-inner {
     color: white;
-    background: #93a173; }
+    background: #87a8a9; }
   .stanf .tile.tile-16 .tile-inner {
     color: brighten(white, 30%);
-    background: #5e8a91; }
+    background: #4e545b; }
   .cal .tile.tile-32 .tile-inner {
     color: white;
-    background: #546051; }
+    background: #5b7389; }
   .stanf .tile.tile-32 .tile-inner {
     color: brighten(white, 30%);
-    background: #6d948f; }
+    background: #606761; }
   .cal .tile.tile-64 .tile-inner {
     color: white;
-    background: #5b441a; }
+    background: #746253; }
   .stanf .tile.tile-64 .tile-inner {
     color: brighten(white, 30%);
-    background: #927a8f; }
+    background: #865469; }
   .cal .tile.tile-128 .tile-inner {
     color: white;
-    background: #3a5243;
+    background: #99b0c5;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -609,7 +611,7 @@ hr {
         font-size: 25px; } }
   .stanf .tile.tile-128 .tile-inner {
     color: brighten(white, 30%);
-    background: #e5e5e5;
+    background: #d1a1a1;
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -617,7 +619,7 @@ hr {
         font-size: 25px; } }
   .cal .tile.tile-256 .tile-inner {
     color: white;
-    background: #2b4c4e;
+    background: #b2c3d4;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -625,7 +627,7 @@ hr {
         font-size: 25px; } }
   .stanf .tile.tile-256 .tile-inner {
     color: brighten(white, 30%);
-    background: #ebebeb;
+    background: #dcb8b8;
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -633,7 +635,7 @@ hr {
         font-size: 25px; } }
   .cal .tile.tile-512 .tile-inner {
     color: white;
-    background: #1c4659;
+    background: #ccd7e2;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -641,7 +643,7 @@ hr {
         font-size: 25px; } }
   .stanf .tile.tile-512 .tile-inner {
     color: brighten(white, 30%);
-    background: #f2f2f2;
+    background: #e8d0d0;
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
@@ -649,7 +651,7 @@ hr {
         font-size: 25px; } }
   .cal .tile.tile-1024 .tile-inner {
     color: white;
-    background: #0e4064;
+    background: #e5ebf0;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
@@ -657,7 +659,7 @@ hr {
         font-size: 15px; } }
   .stanf .tile.tile-1024 .tile-inner {
     color: brighten(white, 30%);
-    background: #f8f8f8;
+    background: #f3e7e7;
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
@@ -665,7 +667,7 @@ hr {
         font-size: 15px; } }
   .cal .tile.tile-2048 .tile-inner {
     color: white;
-    background: #003a70;
+    background: white;
     box-shadow: 0 0 30px 10px rgba(254, 227, 97, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
     @media screen and (max-width: 520px) {

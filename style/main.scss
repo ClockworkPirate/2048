@@ -104,7 +104,7 @@ h1.title {
 }
 
 h1.title.iefix {
-	font-size: 45px;
+	font-size: 40px;
 }
 
 @include keyframes(move-up) {
@@ -736,7 +736,7 @@ hr {
 		.cal &.tile-#{$power} .tile-inner {
 			// Calculate base background color
 			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-			$mixed-background: mix($background-color-cal, $tile-color-cal, $gold-percent);
+			$mixed-background: mix(white, $background-color-cal, $gold-percent);
 
 			$nth-color: nth($special-colors-cal, $exponent);
 
@@ -746,10 +746,8 @@ hr {
 			@if $special-background {
 				$mixed-background: mix($special-background, $mixed-background, 55%);
 			}
-
-			@if $bright-color {
-				color: $aux-color-cal;
-			}
+			
+			color: $aux-color-cal;
 
 			// Set background
 			background: $mixed-background;
@@ -782,7 +780,7 @@ hr {
 		.stanf &.tile-#{$power} .tile-inner {
 			// Calculate base background color
 			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-			$mixed-background: mix($tile-gold-color-stanf, $tile-color-stanf, $gold-percent);
+			$mixed-background: mix(white, $background-color-stanf, $gold-percent);
 
 			$nth-color: nth($special-colors-stanf, $exponent);
 
