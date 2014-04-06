@@ -72,8 +72,6 @@ KeyboardInputManager.prototype.listen = function () {
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
-  this.bindButtonPress(".style-swap-button.cal", this.cal);
-  this.bindButtonPress(".style-swap-button.stanf", this.cal);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
@@ -127,16 +125,6 @@ KeyboardInputManager.prototype.listen = function () {
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
-};
-
-KeyboardInputManager.prototype.cal = function (event) {
-    event.preventDefault();
-    this.emit("cal")
-};
-
-KeyboardInputManager.prototype.stanf = function (event) {
-    event.preventDefault();
-    this.emit("stanf")
 };
 
 KeyboardInputManager.prototype.restart = function (event) {

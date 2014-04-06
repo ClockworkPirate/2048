@@ -2,22 +2,9 @@ game = null;
 var kbd;
 var lastMoveId = 0;
 
-// Wait till the browser is ready to render the game (avoids glitches)
-window.requestAnimationFrame(function () {
-  // game = new GameManager(4, HTMLActuator);
-  kbd = new KeyboardInputManager;
-  kbd.on("move", processKey.bind(kbd));
-  
-
-  Meteor.setInterval(checkUpdates, 100);
-});
 
 processKey = function(direction) {
   makeMove("Name", direction);
-}
-
-Template.list.moves = function() {
-  return Moves.find({}, {sort: {id: -1}});
 }
 
 makeMove = function(name, direction) {
@@ -48,3 +35,12 @@ checkUpdates = function () {
     lastMoveId = m.id;
   }
 }
+// Wait till the browser is ready to render the game (avoids glitches)
+window.requestAnimationFrame(function () {
+  // game = new GameManager(4, HTMLActuator);
+  kbd = new KeyboardInputManager;
+  kbd.on("move", processKey.bind(kbd));
+  
+
+  Meteor.setInterval(checkUpdates, 100);
+});
