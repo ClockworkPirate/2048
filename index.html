@@ -24,32 +24,33 @@
 		<div class="container">
 			<div class="heading">
 				<h1 class="title">Big Hack Plays 2048!</h1>
-				<div class="scores-container">
-					<div class="wins-container">0</div>
-					<div class="losses-container">0</div>
-					<div class="best-container">0</div>
-				</div>
+        
+        {{> scores}}
+        
 				<div class="vote-bar-container">
 					<div class="vote-bar-part-1"></div>
 					<div class="vote-bar-part-2"></div>
 					<div class="vote-bar-part-3"></div>
 					<div class="vote-bar-divider"></div>
 					<div class="vote-bar left"></div>
-					<div class="cal logo"><img src="public/cal-logo.svg" /></div>
-					<div class="stanf logo"><img src="public/stanford-logo-light.png" /></div>
+					<div class="cal logo"><img src="cal-logo.svg" /></div>
+					<div class="stanf logo"><img src="stanford-logo-light.png" /></div>
 				</div>
 			</div>
 
 			<div class="above-game">
-				<p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+				<p class="game-intro">
+          Join the <strong>anarchy</strong> and help everyone get the <strong>2048 tile!</strong><br>
+          Also, <strong>click on a mascot</strong> to vote on the color scheme!
+        </p>
 			</div>
 
 			<div class="game-container">
 				<div class="game-message">
 					<p></p>
 					<div class="lower">
-						<a class="keep-playing-button">Keep going</a>
-						<a class="retry-button">Try again</a>
+						<!--<a class="keep-playing-button">Keep going</a>
+						<a class="retry-button">Try again</a>-->
 					</div>
 				</div>
 
@@ -84,32 +85,63 @@
 
 				</div>
 			</div>
+      
 
-			<div>
-				<div class="chat-container chat-view">
-					Nothing here!
-				</div>
-				<div class="chat-container chat-entry-container">
-					<input class="chat-entry"/>
-					<button class="chat-entry-button">Send!</button>
-				</div>
+			<div class="box prompt-box edit">
+				<input class="name-field" type="text" placeholder="Enter your name to begin" />
+        <div class="welcome">
+          Welcome, <span class="name" title="Click to change your name"></span>.<br>
+          <span class="message"></span>
+        </div>
 			</div>
+      
+      {{> commands}}
 
 			<p class="game-explanation">
-				<strong class="important">How to play:</strong> Type your moves into the <strong>chat box</strong> above and hope everyone else doesn't make us lose!
-				<strong>Vote</strong> to change the game's <strong>color scheme</strong> by clicking on the <strong>mascots</strong> on the edges of the page!
+				<strong class="important">How to play:</strong> Enter your name, then
+        use your <strong>arrow keys</strong> to move the tiles. Everyone is
+        playing the same game, so cooperation is key!
+			</p>
+			<p>
+				<strong class="important">Also:</strong> It's <strong>Cal versus
+          Stanford!</strong> Vote for a side by <strong>clicking</strong> on its
+          mascot. Get enough votes, and the site's color scheme will change.
 			</p>
 			<hr>
 			<p>
-			<strong class="important">Note:</strong> This site is <strong>not</strong> the official version of 2048. You can play <strong>that</strong> on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites (such as this one!) are derivatives or fakes, and should be used with caution (don't worry, ours is okay :)).
+			  <strong class="important">Note:</strong> This site is
+        <strong>not</strong> the official version of 2048. You can play
+        <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli</a>'s
+        2048 at <a href="http://git.io/2048">http://git.io/2048</a>.
 			</p>
-			<hr>
 			<p>
-			A blatant ripoff of <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli</a>'s 2048. Go play that too! 
+			  <strong class="important">Note:</strong> This game is inspired by Twitch
+        Plays Pokémon, a social experiment started in February 2014. The stream
+        is available <a href="http://www.twitch.tv/twitchplayspokemon">here</a>.
 			</p>
 		</div>
 
-		<div class="style-swap-button cal"><img src="public/cal.png" /></div>
-		<div class="style-swap-button stanf"><img src="public/stanford.png" /></div>
+		<div class="style-swap-button cal"><img src="cal.png" /></div>
+		<div class="style-swap-button stanf"><img src="stanford.png" /></div>
 	</div>
+</template>
+
+<template name="scores">
+  {{#each scores}}
+	<div class="scores-container">
+		<div class="wins-container">{{wins}}</div>
+		<div class="losses-container">{{losses}}</div>
+		<!--<div class="best-container">0</div>-->
+	</div>
+  {{/each}}
+</template>
+
+<template name="commands">
+	<ul class="box commands">
+		{{#each commands}}
+      <li class="command direction-{{direction}} valid-{{validMove}}">
+        <span class="name">{{name}}</span>
+      </li>
+    {{/each}}
+	</ul>
 </template>

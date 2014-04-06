@@ -154,7 +154,7 @@ h1.title {
   background-color: #fdd515; }
 
 .stanf .vote-bar-part-2 {
-  background-color: white; }
+  background-color: #4d4f53; }
 
 .vote-bar-part-2 {
   margin: 0;
@@ -189,7 +189,7 @@ h1.title {
   height: 30px;
   top: -40px;
   left: 75px;
-  width: 175px;
+  width: 0px;
   z-index: 30; }
 
 .cal .vote-bar-divider {
@@ -218,7 +218,7 @@ h1.title {
   right: 10px; }
 
 .stanf.logo {
-  left: 310px; }
+  left: 380px; }
 
 .logo img {
   width: auto;
@@ -258,29 +258,72 @@ hr {
   width: 500px;
   margin: 0 auto; }
 
-.chat-view {
-  height: 100px; }
-
-.cal .chat-container {
-  background-color: #fdd515; }
-
-.stanf .chat-container {
-  background-color: white; }
-
-.chat-container {
+.box {
   margin-top: 20px;
   border-radius: 5px;
   padding: 10px;
-  text-align: right; }
+  text-align: left; }
 
-.cal .chat-entry {
+.cal .box {
   background-color: #fdd515;
   color: #003a70; }
 
-.stanf .chat-entry {
+.stanf .box {
   background-color: white;
   color: #8c1515; }
 
+.commands {
+  list-style-type: none; }
+
+.command.valid-false {
+  color: #999999; }
+
+.name-field {
+  font-size: 20px;
+  font-family: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  width: 455px;
+  outline: none;
+  display: none;
+}
+
+.edit .name-field {
+  display: block;
+}
+
+.edit .welcome {
+  display: none;
+}
+
+.welcome .name {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.command {
+  height: 20px;
+  padding: 4px 0;
+}
+
+.command.direction-0:before { 
+  content: "▲ ";
+}
+
+.command.direction-1:before { 
+  content: "▶ ";
+}
+
+.command.direction-2:before { 
+  content: "▼ ";
+}
+
+.command.direction-3:before { 
+  content: "◀ ";
+}
+
+/*
 .chat-entry {
   width: 89%;
   border: none;
@@ -299,6 +342,7 @@ hr {
   border-radius: 5px;
   padding: 5px;
   cursor: pointer; }
+*/
 
 @-webkit-keyframes fade-in {
   0% {
@@ -992,19 +1036,24 @@ hr {
     width: 80%; } }
 .style-swap-button {
   position: absolute;
-  width: 512px;
+  width: 312px;
   height: 512px;
   z-index: 50;
   overflow: hidden;
   cursor: pointer; }
 
 .style-swap-button.cal {
-  left: -200px;
+  left: 0px;
   top: 275px;
   background-image: url(public/cal.png); }
 
+.wrapper.stanf .style-swap-button.cal {
+  opacity: 0.5; }
+
 .style-swap-button.stanf {
-  right: -200px;
+  right: 0px;
   top: 25px;
-  background-image: url(public/stanford.png);
+  background-image: url(public/stanford.png); }
+
+.wrapper.cal .style-swap-button.stanf {
   opacity: 0.5; }

@@ -108,15 +108,15 @@ HTMLActuator.prototype.positionClass = function (position) {
 };
 
 HTMLActuator.prototype.updateWins = function() {
-    this.winsContainer.textContent = wins;
+    //this.winsContainer.textContent = wins;
 };
 
 HTMLActuator.prototype.updateLosses = function() {
-    this.lossesContainer.textContent = losses;
+    //this.lossesContainer.textContent = losses;
 };
 
 HTMLActuator.prototype.updateVotes = function() {
-    this.votesContainer.textContet = votes;
+    //this.votesContainer.textContet = votes;
 };
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
