@@ -821,21 +821,6 @@ hr {
 	margin-bottom: 0;
 }
 
-.cal .restart-button {
-	@include button-cal;
-}
-
-.stanf .restart-button {
-	@include button-stanf;
-}
-
-.restart-button {
-	@include button;
-	display: block;
-	text-align: center;
-	float: right;
-}
-
 .game-explanation {
 	margin-top: 50px;
 }
