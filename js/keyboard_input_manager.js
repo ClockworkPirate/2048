@@ -132,12 +132,12 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.cal = function (event) {
     event.preventDefault();
     this.emit("cal")
-}
+};
 
 KeyboardInputManager.prototype.stanf = function (event) {
     event.preventDefault();
     this.emit("stanf")
-}
+};
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
