@@ -19,3 +19,26 @@ switch_to_stanf = function () {
 	$("img.stanf").fadeTo("slow", 1.0);
 	$("div.cal").removeClass("cal").addClass("stanf");
 }
+
+set_votes = function (votes) {
+	$bar = $(".vote-bar");
+	if (votes > 0)
+	{
+		$bar.removeClass("left");
+		$bar.addClass("right");
+	}
+	else if (votes < 0)
+	{
+		$bar.removeClass("right");
+		$bar.addClass("left");
+	}
+	else
+	{
+		$bar.removeClass("left");
+		$bar.removeClass("right");
+	}
+	$bar.css("width: " + votes + ";");
+	$bar.css("left:" + min(200 + votes, 200) + ";");
+
+	$(".vote-container:after").css("content: " + votes + ";");
+}
