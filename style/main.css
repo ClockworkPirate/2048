@@ -5,16 +5,21 @@ html, body {
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
 
-html.cal, body.cal {
+body {
+  margin: 10px 0; }
+
+.wrapper.cal {
   background: #003a70;
   color: #fdd515; }
 
-html.stanf, body.stanf {
+.wrapper.stanf {
   background: #8c1515;
   color: white; }
 
-body {
-  margin: 10px 0; }
+.wrapper {
+  width: 100%;
+  position: absolute;
+  top: 0; }
 
 .heading:after {
   content: "";

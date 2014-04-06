@@ -2,23 +2,23 @@ $(document).ready(function ()
 {
 	$("img.cal").click(function ()
 	{
-		switch_to_cal();
+		Meteor.call('register_vote', $(".name-field").val(), -1);
 	});
 
 	$("img.stanf").click(function ()
 	{
-		switch_to_stanf();
+		Meteor.call('register_vote', $(".name-field").val(), 1);
 	});
 });
 
 switch_to_cal = function () {
 	$("img.stanf").fadeTo("slow", 0.5);
 	$("img.cal").fadeTo("slow", 1.0);
-	$("body.stanf").removeClass("stanf").addClass("cal");
+	$("div.stanf").removeClass("stanf").addClass("cal");
 }
 
 switch_to_stanf = function () {
 	$("img.cal").fadeTo("slow", 0.5);
 	$("img.stanf").fadeTo("slow", 1.0);
-	$("body.cal").removeClass("cal").addClass("stanf");
+	$("div.cal").removeClass("cal").addClass("stanf");
 }

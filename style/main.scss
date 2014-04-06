@@ -68,17 +68,24 @@ html, body {
 	font-size: 18px;
 }
 
-html.cal, body.cal {
+body {
+	margin: 10px 0;
+}
+
+.wrapper.cal {
 	background: $background-color-cal;
 	color: $text-color-cal;
 }
-html.stanf, body.stanf {
+
+.wrapper.stanf {
 	background: $background-color-stanf;
 	color: $text-color-stanf;
 }
 
-body {
-	margin: 10px 0;
+.wrapper {
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
 
 .heading {
