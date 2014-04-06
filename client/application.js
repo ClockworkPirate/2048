@@ -2,7 +2,6 @@ game = null;
 var kbd;
 var lastMoveId = 0;
 var cooldown = false;
-var votes;
 
 
 processKey = function(direction) {
@@ -22,7 +21,7 @@ makeMove = function(name, direction) {
 
 
 checkUpdates = function () {
-  var m = Moves.findOne({}, {sort: {id: -1}});
+  var m = Updates.findOne({}, {sort: {id: -1}});
   if(m != null && m.id != lastMoveId) {
     if(game == null) {
       game = new GameManager(4, HTMLActuator);
@@ -40,12 +39,13 @@ checkUpdates = function () {
       }
     }
     lastMoveId = m.id;
-    votes = m.votes;
-    if (votes > 100) {
-      switch_to_cal();
-    }
-    else if (votes < 100) {
+    var votes = m.votes;
+    set_votes(votes);
+    if (votes > 20) {
       switch_to_stanf();
+    }
+    else if (votes < -20) {
+      switch_to_cal();
     }
   }
 }

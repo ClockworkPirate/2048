@@ -3,7 +3,7 @@ var game;
 
 Meteor.startup(function () {
   game = new GameManager(4, ServerActuator);
-  Moves.insert({id: 0});
+  Updates.insert({id: 0});
 });
 
 
@@ -16,12 +16,13 @@ Meteor.methods({
   
   register_move: function(name, direction) {
     commandList.push([name, direction]);
-    //Moves.insert({name: name, direction: direction, id: counter});
+    //Updates.insert({name: name, direction: direction, id: counter});
   },
   
   register_vote: function(name, direction) {
-    if (votes < 175 && votes > -175)
+    if((votes < 35 && direction > 0) || (votes > -35 && direction < 0)) {
       votes += direction;
+    }
   }
 });
 
@@ -30,8 +31,8 @@ Meteor.setInterval(function () {
   if(commandList.length > 0) {
     var m = commandList.shift();
     var newTile = game.move(m[1]);
-    var lastId = Moves.findOne({}, {sort: {id: -1}}).id;
-    Moves.insert({
+    var lastId = Updates.findOne({}, {sort: {id: -1}}).id;
+    Updates.insert({
       id: lastId + 1,
       name: m[0],
       direction: m[1],
@@ -39,7 +40,7 @@ Meteor.setInterval(function () {
       newTile: newTile,
       votes: votes
     });
-    Moves.remove({
+    Updates.remove({
       id: {$lt: lastId - 10}
     });
     
@@ -49,8 +50,8 @@ Meteor.setInterval(function () {
     setTimeout(function(){
       commandList = [];
       game.restart();
-      Moves.remove({});
-      Moves.insert({
+      Updates.remove({});
+      Updates.insert({
         id: 0,
         name: "Server",
         direction: -1,

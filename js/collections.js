@@ -1,1 +1,1 @@
-Moves = new Meteor.Collection('moves');
+Updates = new Meteor.Collection('updates');
